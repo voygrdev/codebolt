@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { StepsList } from '../components/StepsList';
 import { FileExplorer } from '../components/FileExplorer';
@@ -10,17 +10,8 @@ import axios from 'axios';
 import { BACKEND_URL } from '../config';
 import { parseXml } from '../steps';
 import { useWebContainer } from '../hooks/useWebContainer';
-import { FileNode } from '@webcontainer/api';
 import { Loader } from '../components/Loader';
 
-const MOCK_FILE_CONTENT = `// This is a sample file content
-import React from 'react';
-
-function Component() {
-  return <div>Hello World</div>;
-}
-
-export default Component;`;
 
 export function Builder() {
   const location = useLocation();
@@ -47,17 +38,17 @@ export function Builder() {
       if (step?.type === StepType.CreateFile) {
         let parsedPath = step.path?.split("/") ?? []; // ["src", "components", "App.tsx"]
         let currentFileStructure = [...originalFiles]; // {}
-        let finalAnswerRef = currentFileStructure;
+        const finalAnswerRef = currentFileStructure;
   
         let currentFolder = ""
         while(parsedPath.length) {
           currentFolder =  `${currentFolder}/${parsedPath[0]}`;
-          let currentFolderName = parsedPath[0];
+          const currentFolderName = parsedPath[0];
           parsedPath = parsedPath.slice(1);
   
           if (!parsedPath.length) {
             // final file
-            let file = currentFileStructure.find(x => x.path === currentFolder)
+            const file = currentFileStructure.find(x => x.path === currentFolder)
             if (!file) {
               currentFileStructure.push({
                 name: currentFolderName,
@@ -70,7 +61,7 @@ export function Builder() {
             }
           } else {
             /// in a folder
-            let folder = currentFileStructure.find(x => x.path === currentFolder)
+            const folder = currentFileStructure.find(x => x.path === currentFolder)
             if (!folder) {
               // create the folder
               currentFileStructure.push({
@@ -175,7 +166,7 @@ export function Builder() {
 
     setSteps(s => [...s, ...parseXml(stepsResponse.data.response).map(x => ({
       ...x,
-      status: "pending" as "pending"
+      status: "pending" as const
     }))]);
 
     setLlmMessages([...prompts, prompt].map(content => ({
@@ -218,7 +209,7 @@ export function Builder() {
                   }} className='p-2 w-full'></textarea>
                   <button onClick={async () => {
                     const newMessage = {
-                      role: "user" as "user",
+                      role: "user" as const,
                       content: userPrompt
                     };
 
@@ -236,7 +227,7 @@ export function Builder() {
                     
                     setSteps(s => [...s, ...parseXml(stepsResponse.data.response).map(x => ({
                       ...x,
-                      status: "pending" as "pending"
+                      status: "pending" as const
                     }))]);
 
                   }} className='bg-purple-400 px-4'>Send</button>
@@ -257,7 +248,7 @@ export function Builder() {
               {activeTab === 'code' ? (
                 <CodeEditor file={selectedFile} />
               ) : (
-                <PreviewFrame webContainer={webcontainer} files={files} />
+                webcontainer && <PreviewFrame webContainer={webcontainer} files={files} />
               )}
             </div>
           </div>
