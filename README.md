@@ -1,81 +1,66 @@
-# Turborepo starter
+# CodeBolt: A Powerful Website Builder
 
-This is an official starter Turborepo.
+Welcome to CodeBolt, a robust website builder powered by Claude AI, TurboRepo, Next.js, Express, and Web Containers. This project aims to streamline the process of building and deploying modern web applications with ease and efficiency.
 
-## Using this example
+## Features
 
-Run the following command:
+- **AI-Powered**: Leverage Claude AI for intelligent suggestions and automation.
+- **Monorepo Architecture**: Managed with TurboRepo for efficient builds and deployments.
+- **Modern Web Technologies**: Built with Next.js and Express for both frontend and backend capabilities.
+- **Web Containers**: Utilize containerized environments for consistent development experiences.
 
-```sh
-npx create-turbo@latest
-```
+## Preview
 
-## What's inside?
+![CodeBolt Preview](https://github.com/user-attachments/assets/6bc5b511-6e01-4bae-bc0e-2d9b0b0d195c)
+![CodeBolt Preview](https://github.com/user-attachments/assets/7ece68e7-f531-4d8d-aeaa-67196936cd66)
+![CodeBolt Preview](https://github.com/user-attachments/assets/cbb69a40-c150-4277-8ae3-65a041c77ea1)
 
-This Turborepo includes the following packages/apps:
+## Installation
 
-### Apps and Packages
+Follow these steps to get started with CodeBolt:
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+1. **Clone the Repository**
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+   ```bash
+   git clone https://github.com/krishmakhijani/codebolt.git
+   cd codebolt
+   ```
 
-### Utilities
+2. **Install Dependencies**
 
-This Turborepo has some additional tools already setup for you:
+   Make sure you have Node.js and npm installed. Then run:
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+   ```bash
+   npm install
+   ```
 
-### Build
+3. **Setup Environment Variables**
 
-To build all apps and packages, run the following command:
+   Create a `.env` file in the root directory and configure the necessary environment variables.
 
-```
-cd my-turborepo
-pnpm build
-```
+4. **Run the Development Server**
 
-### Develop
+   Start the development server:
 
-To develop all apps and packages, run the following command:
+   ```bash
+   npm run dev
+   ```
 
-```
-cd my-turborepo
-pnpm dev
-```
+   Your application should now be running on [http://localhost:3000](http://localhost:3000).
 
-### Remote Caching
+5. **Build for Production**
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+   To create a production build, run:
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+   ```bash
+   npm run build
+   ```
 
-```
-cd my-turborepo
-npx turbo login
-```
+6. **Start the Production Server**
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+   After building, you can start the production server with:
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+   ```bash
+   npm start
+   ```
 
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
